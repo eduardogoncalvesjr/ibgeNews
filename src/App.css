@@ -1,0 +1,14 @@
+a, a:visited {
+  text-decoration: none;
+  color: inherit;
+}
+
+.news_title, .most_recent_news_title {
+  font-size: 1.125rem;
+  font-weight: bold;
+}
+
+.most_recent_news_title {
+  font-size: 1.425rem;
+}
+

@@ -29,7 +29,7 @@ export default function LatestNews() {
           />
         </a>
       </div>
-      <h3>{latestNews.titulo}</h3>
+      <p className="most_recent_news_title">{latestNews.titulo}</p>
       <p>{latestNews.introducao}</p>
       <div className="d-flex justify-content-between">
         tempo

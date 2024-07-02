@@ -3,6 +3,7 @@ import Login from './pages/Login';
 import Home from './pages/Home';
 import Layout from './components/Layout';
 import './style.scss';
+import './App.css';
 
 export default function App() {
   return (
