@@ -1,0 +1,5 @@
+.news_introduction_size {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
