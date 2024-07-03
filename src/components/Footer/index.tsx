@@ -2,9 +2,15 @@ export default function Footer() {
   return (
     <footer className="bg-secondary text-light p-3">
       <h2>IBGE News</h2>
-      <a href="/#" className="footer_link">
+      <button
+        className="footer_link"
+        onClick={ (e) => {
+          e.preventDefault();
+          window.scrollTo(0, 0);
+        } }
+      >
         Início
-      </a>
+      </button>
       <a href="/#" className="footer_link">
         Painel
       </a>

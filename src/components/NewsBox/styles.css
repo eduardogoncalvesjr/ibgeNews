@@ -1,9 +1,3 @@
-.news_introduction_size {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.image img {
-  max-width: 140px;
+.news_card {
+  border: none !important;
 }

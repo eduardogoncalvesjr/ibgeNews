@@ -6,6 +6,7 @@ export default function DataProvider({ children }: DataProviderProps) {
   const [user, setUser] = useState<string>('');
   const [news, setNews] = useState<ItemsType[]>([]);
   const [latestNews, setLatestNews] = useState<ItemsType | null>(null);
+  const [searchedNews, setSearchedNews] = useState<ItemsType[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
   const value = {
@@ -15,6 +16,8 @@ export default function DataProvider({ children }: DataProviderProps) {
     setNews,
     latestNews,
     setLatestNews,
+    searchedNews,
+    setSearchedNews,
     isLoading,
     setIsLoading,
   };

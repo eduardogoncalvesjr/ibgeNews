@@ -3,6 +3,7 @@ import DataContext from '../../context/DataContext';
 import getImageURL from '../../utils/getImageUrl';
 import FavoriteHeart from '../FavoriteHeart';
 import getDateTime from '../../utils/getDateTime';
+import ShareButton from '../ShareButton';
 
 export default function LatestNews() {
   const { latestNews } = useContext(DataContext);
@@ -36,7 +37,10 @@ export default function LatestNews() {
         <span className="news_date">
           {`${latestNews.tipo} | ${getDateTime(latestNews.data_publicacao)}`}
         </span>
-        <FavoriteHeart newsId={ newsId } />
+        <div className="d-flex justify-content-start align-items-center">
+          <FavoriteHeart newsId={ newsId } />
+          <ShareButton newsURL={ newsURL } />
+        </div>
       </div>
     </div>
   );

@@ -1,7 +1,7 @@
-const fetchNews = async () => {
-  const URL = 'http://servicodados.ibge.gov.br/api/v3/noticias';
+const fetchNews = async (page: string = '1') => {
+  const URL = 'http://servicodados.ibge.gov.br/api/v3/noticias/?page=';
 
-  const response = await fetch(URL);
+  const response = await fetch(`${URL}${page}`);
 
   if (!response.ok) {
     throw new Error('Error fetching the API.');

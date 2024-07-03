@@ -5,6 +5,8 @@ export type DataContextType = {
   setNews: React.Dispatch<React.SetStateAction<ItemsType[]>>;
   latestNews: ItemsType | null;
   setLatestNews: React.Dispatch<React.SetStateAction<ItemsType | null>>;
+  searchedNews: ItemsType[];
+  setSearchedNews: React.Dispatch<React.SetStateAction<ItemsType[]>>;
   isLoading: boolean;
   setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
 };
