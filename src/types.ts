@@ -30,14 +30,23 @@ export type ItemsType = {
   id: number;
   tipo: Tipo;
   titulo: string;
-  introducao: string;
+  introducao?: string;
   data_publicacao: string;
-  produto_id: number;
-  produtos: string;
-  editorias: Editorias;
+  produto_id?: number;
+  produtos?: string;
+  editorias?: Editorias;
   imagens: string;
-  produtos_relacionados: string;
-  destaque: boolean;
+  produtos_relacionados?: string;
+  destaque?: boolean;
+  link: string;
+};
+
+export type FavoriteType = {
+  id: number;
+  tipo: Tipo;
+  titulo: string;
+  data_publicacao: string;
+  imagens: string;
   link: string;
 };
 

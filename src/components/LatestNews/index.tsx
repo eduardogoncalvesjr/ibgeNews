@@ -17,8 +17,6 @@ export default function LatestNews() {
   const image = JSON.parse(latestNews.imagens);
   const imageURL = getImageURL(image.image_intro);
 
-  const newsId = latestNews.id.toString();
-
   return (
     <div className="latest_news_box">
       <div>
@@ -38,7 +36,7 @@ export default function LatestNews() {
           {`${latestNews.tipo} | ${getDateTime(latestNews.data_publicacao)}`}
         </span>
         <div className="d-flex justify-content-start align-items-center">
-          <FavoriteHeart newsId={ newsId } />
+          <FavoriteHeart news={ latestNews } />
           <ShareButton newsURL={ newsURL } />
         </div>
       </div>

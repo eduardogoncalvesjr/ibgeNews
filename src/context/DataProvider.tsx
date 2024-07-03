@@ -20,6 +20,7 @@ export default function DataProvider({ children }: DataProviderProps) {
     setSearchedNews,
     isLoading,
     setIsLoading,
+
   };
 
   return (

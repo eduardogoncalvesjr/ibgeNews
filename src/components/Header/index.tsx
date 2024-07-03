@@ -36,7 +36,7 @@ function OffcanvasExample() {
         data-bs-theme="dark"
       >
         <Container fluid>
-          <Navbar.Brand href="#">IBGE News</Navbar.Brand>
+          <Navbar.Brand href="/home" className="text-light">IBGE News</Navbar.Brand>
           <Navbar.Toggle aria-controls={ `offcanvasNavbar-expand-${false}` } />
           <Navbar.Offcanvas
             id={ `offcanvasNavbar-expand-${false}` }
@@ -45,7 +45,7 @@ function OffcanvasExample() {
           >
             <Offcanvas.Header closeButton>
               <Offcanvas.Title id={ `offcanvasNavbarLabel-expand-${false}` }>
-                IBGE News
+                <a href="/home">IBGE News</a>
               </Offcanvas.Title>
             </Offcanvas.Header>
             <Offcanvas.Body>
@@ -66,8 +66,9 @@ function OffcanvasExample() {
                 </Button>
               </Form>
               <Nav className="justify-content-end flex-grow-1 pe-3 mt-3">
-                <Nav.Link href="#action1">Favoritos</Nav.Link>
-                <Nav.Link href="#action2">Painel</Nav.Link>
+                <Nav.Link href="/home">Início</Nav.Link>
+                <Nav.Link href="/favorites">Favoritos</Nav.Link>
+                <Nav.Link href="/user-panel">Painel</Nav.Link>
               </Nav>
               <SearchedNews />
             </Offcanvas.Body>

@@ -7,7 +7,6 @@ import getDateTime from '../../utils/getDateTime';
 import ShareButton from '../ShareButton';
 
 export default function NewsBox({ news }: { news: ItemsType }) {
-  const newsId = news.id.toString();
   const newsURL = news.link;
 
   const image = JSON.parse(news.imagens);
@@ -23,7 +22,7 @@ export default function NewsBox({ news }: { news: ItemsType }) {
             </a>
           </div>
           <div className="d-flex justify-content-start align-items-center">
-            <FavoriteHeart newsId={ newsId } />
+            <FavoriteHeart news={ news } />
             <ShareButton newsURL={ newsURL } />
           </div>
         </div>

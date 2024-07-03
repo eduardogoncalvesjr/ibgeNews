@@ -67,7 +67,7 @@ export default function Login() {
           />
         </div>
         <button
-          className="btn btn-primary w-100"
+          className="btn btn-primary w-100 text-light"
           disabled={ !isDisabled }
           type="submit"
         >

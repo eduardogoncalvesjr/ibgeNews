@@ -1,35 +1,49 @@
 import { FaHeart, FaRegHeart } from 'react-icons/fa';
 import './styles.css';
 import { useEffect, useState } from 'react';
+import { ItemsType } from '../../types';
 
 type FavoriteHeartProps = {
-  newsId: string;
+  news: ItemsType;
 };
 
-export default function FavoriteHeart({ newsId }: FavoriteHeartProps) {
+export default function FavoriteHeart({ news }: FavoriteHeartProps) {
   const [isFavorite, setIsFavorite] = useState(false);
 
   useEffect(() => {
     const currentNews = localStorage.getItem('favoriteNews');
     const favoriteList = currentNews ? JSON.parse(currentNews) : [];
 
-    if (favoriteList.includes(newsId)) {
+    if (favoriteList
+      .some((item: ItemsType) => item.id.toString() === news.id.toString())
+    ) {
       setIsFavorite(true);
     }
-  }, [newsId]);
+  }, [news.id]);
 
-  const handleFavorite = (id: string) => {
+  const handleFavorite = (favoriteNews: ItemsType) => {
     const currentNews = localStorage.getItem('favoriteNews');
     const favoriteList = currentNews ? JSON.parse(currentNews) : [];
+    const newsId = favoriteNews.id.toString();
 
-    if (favoriteList.includes(id)) {
+    const newsInfo: ItemsType = {
+      id: favoriteNews.id,
+      titulo: favoriteNews.titulo,
+      link: favoriteNews.link,
+      imagens: favoriteNews.imagens,
+      tipo: favoriteNews.tipo,
+      data_publicacao: favoriteNews.data_publicacao,
+    };
+
+    if (favoriteList.some((item: ItemsType) => item.id.toString() === newsId)) {
       const filteredList = favoriteList
-        .filter((existingId: string) => existingId !== id);
-
+        .filter((item: ItemsType) => item.id.toString() !== newsId);
       localStorage.setItem('favoriteNews', JSON.stringify(filteredList));
+      window.dispatchEvent(new CustomEvent('local-storage-update'));
       setIsFavorite(false);
     } else {
-      localStorage.setItem('favoriteNews', JSON.stringify([...favoriteList, id]));
+      localStorage.setItem('favoriteNews', JSON.stringify([...favoriteList, newsInfo]));
+      window.dispatchEvent(new CustomEvent('local-storage-update'));
       setIsFavorite(true);
     }
   };
@@ -37,7 +51,7 @@ export default function FavoriteHeart({ newsId }: FavoriteHeartProps) {
   return (
     <button
       className={ `favorite_heart ${isFavorite ? 'favorited' : ''}` }
-      onClick={ () => handleFavorite(newsId) }
+      onClick={ () => handleFavorite(news) }
     >
       {isFavorite ? <FaHeart /> : <FaRegHeart />}
     </button>
