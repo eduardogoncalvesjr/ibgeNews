@@ -3,3 +3,7 @@
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+
+.image img {
+  max-width: 140px;
+}

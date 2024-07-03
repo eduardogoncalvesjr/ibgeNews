@@ -1,14 +1,37 @@
-a, a:visited {
+a,
+a:visited {
   text-decoration: none;
   color: inherit;
 }
 
-.news_title, .most_recent_news_title {
-  font-size: 1.125rem;
+.footer_link {
+  display: block;
+  margin-top: 1rem;
+}
+
+.footer_link_name {
+  text-decoration: underline;
+}
+
+.news_title,
+.most_recent_news_title {
+  font-size: 1rem;
   font-weight: bold;
 }
 
 .most_recent_news_title {
-  font-size: 1.425rem;
+  font-size: 1.225rem;
 }
 
+.most_recent_news_intro {
+  font-size: 0.9rem;
+}
+
+.news_date {
+  color: grey;
+  font-size: 0.9rem;
+}
+
+.separator {
+  border-bottom: 2px solid #3a3c41;
+}

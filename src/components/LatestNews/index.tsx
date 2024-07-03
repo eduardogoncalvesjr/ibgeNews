@@ -1,6 +1,8 @@
 import { useContext } from 'react';
 import DataContext from '../../context/DataContext';
 import getImageURL from '../../utils/getImageUrl';
+import FavoriteHeart from '../FavoriteHeart';
+import getDateTime from '../../utils/getDateTime';
 
 export default function LatestNews() {
   const { latestNews } = useContext(DataContext);
@@ -14,28 +16,27 @@ export default function LatestNews() {
   const image = JSON.parse(latestNews.imagens);
   const imageURL = getImageURL(image.image_intro);
 
+  const newsId = latestNews.id.toString();
+
   return (
-    <div>
-      <div className="d-flex justify-content-between">
-        <span className="text-danger">Notícia mais recente</span>
-        <button>favoritar</button>
-      </div>
+    <div className="latest_news_box">
       <div>
-        <a href={ newsURL }>
-          <img
-            src={ imageURL }
-            alt={ latestNews.titulo }
-            className="w-100"
-          />
-        </a>
+        <span className="text-danger d-block mb-2">Notícia mais recente</span>
       </div>
-      <p className="most_recent_news_title">{latestNews.titulo}</p>
-      <p>{latestNews.introducao}</p>
-      <div className="d-flex justify-content-between">
-        tempo
-        <button className="btn btn-success">
-          <a href={ newsURL }>Leia a notícia</a>
-        </button>
+      <a href={ newsURL }>
+        <img
+          src={ imageURL }
+          alt={ latestNews.titulo }
+          className="w-100 mb-2"
+        />
+        <p className="most_recent_news_title">{latestNews.titulo}</p>
+        <p className="most_recent_news_intro">{latestNews.introducao}</p>
+      </a>
+      <div className="d-flex justify-content-between align-items-center">
+        <span className="news_date">
+          {`${latestNews.tipo} | ${getDateTime(latestNews.data_publicacao)}`}
+        </span>
+        <FavoriteHeart newsId={ newsId } />
       </div>
     </div>
   );
