@@ -52,6 +52,7 @@ export default function FavoriteHeart({ news }: FavoriteHeartProps) {
     <button
       className={ `favorite_heart ${isFavorite ? 'favorited' : ''}` }
       onClick={ () => handleFavorite(news) }
+      data-testid="favorite-button"
     >
       {isFavorite ? <FaHeart /> : <FaRegHeart />}
     </button>

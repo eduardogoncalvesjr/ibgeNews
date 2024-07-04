@@ -8,8 +8,6 @@ import ShareButton from '../ShareButton';
 export default function LatestNews() {
   const { latestNews } = useContext(DataContext);
 
-  console.log(latestNews)
-
   if (!latestNews) {
     return <div>Loading...</div>;
   }
@@ -20,7 +18,7 @@ export default function LatestNews() {
   const imageURL = getImageURL(image.image_intro);
 
   return (
-    <div className="latest_news_box">
+    <div className="latest_news_box" data-testid="latest-news-box">
       <div>
         <span className="text-danger d-block mb-2">
           {latestNews.tipo}

@@ -69,10 +69,12 @@ function OffCanvasNavbar() {
                   aria-label="Search"
                   value={ searchText }
                   onChange={ handleInputChange }
+                  data-testid="search-input"
                 />
                 <Button
                   onClick={ handleSearch }
                   variant="outline-success"
+                  data-testid="search-button"
                 >
                   Buscar
                 </Button>
@@ -89,6 +91,7 @@ function OffCanvasNavbar() {
                   as={ Link }
                   to="/favorites"
                   onClick={ handleClose }
+                  data-testid="favorites-link"
                 >
                   Favoritos
                 </Nav.Link>

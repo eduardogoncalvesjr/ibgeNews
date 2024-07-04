@@ -18,6 +18,7 @@ export default function SearchedNews() {
                 <li
                   key={ news.id }
                   className="mb-2"
+                  data-testid="searched-news-result"
                 >
                   <a href={ news.link }>
                     {news.titulo}

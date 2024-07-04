@@ -8,6 +8,7 @@ export default function Favorites() {
   const loadFavorites = () => {
     const getLocalStorage = localStorage.getItem('favoriteNews');
     const favoriteList = getLocalStorage ? JSON.parse(getLocalStorage) : [];
+
     setFavoriteNews(favoriteList);
   };
 

@@ -25,10 +25,12 @@ export default function ShareButton({ newsURL }: ShareButtonProps) {
             copyToClipboard(newsURL);
             handleShowCopiedMessage();
           } }
+          data-testid="share-button"
         />
       </div>
       <div
         className={ `copied_message ${isShowCopiedMessage && 'show_copied_message '}` }
+        data-testid="copied-message"
       >
         Link copiado!
       </div>

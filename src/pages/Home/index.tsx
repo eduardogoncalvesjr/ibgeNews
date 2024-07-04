@@ -72,6 +72,7 @@ export default function Home() {
             <button
               className="btn btn-secondary"
               onClick={ handleLoadMorePages }
+              data-testid="additional-news"
             >
               Carregar mais
             </button>

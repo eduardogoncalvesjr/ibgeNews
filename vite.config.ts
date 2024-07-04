@@ -13,6 +13,16 @@ export default defineConfig({
     reporters: ['verbose'],
     coverage: {
       reporter: ['text', 'json', 'html'],
+      include: ['src/**/*'],
+      exclude: [
+        "src/main.tsx",
+        "src/fakes",
+        "src/routes",
+        "src/tests",
+        "src/types.ts",
+        "src/utils/copyToClipboard.ts",
+        "src/components/ScrollToTop"
+      ],
       provider: 'v8'
     }
   },
