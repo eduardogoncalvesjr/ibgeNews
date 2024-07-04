@@ -9,6 +9,8 @@ export type DataContextType = {
   setSearchedNews: React.Dispatch<React.SetStateAction<ItemsType[]>>;
   isLoading: boolean;
   setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
+  filter: string;
+  setFilter: (filter: string) => void;
 };
 
 export type DataProviderProps = {

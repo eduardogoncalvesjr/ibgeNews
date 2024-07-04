@@ -6,15 +6,20 @@ import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Offcanvas from 'react-bootstrap/Offcanvas';
+import { Link } from 'react-router-dom';
 import getCurrentDate from '../../utils/getCurrentDate';
 import './styles.css';
 import SearchedNews from '../SearchedNews';
 import DataContext from '../../context/DataContext';
 import fetchByText from '../../utils/fetchByText';
 
-function OffcanvasExample() {
+function OffCanvasNavbar() {
   const { setSearchedNews } = useContext(DataContext);
   const [searchText, setSearchText] = useState('');
+
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   const handleSearch = () => {
     fetchByText(searchText).then((result) => {
@@ -36,16 +41,23 @@ function OffcanvasExample() {
         data-bs-theme="dark"
       >
         <Container fluid>
-          <Navbar.Brand href="/home" className="text-light">IBGE News</Navbar.Brand>
-          <Navbar.Toggle aria-controls={ `offcanvasNavbar-expand-${false}` } />
+          <Navbar.Brand className="text-light">
+            <Link to="/home">IBGE News</Link>
+          </Navbar.Brand>
+          <Navbar.Toggle
+            aria-controls={ `offcanvasNavbar-expand-${false}` }
+            onClick={ handleShow }
+          />
           <Navbar.Offcanvas
             id={ `offcanvasNavbar-expand-${false}` }
             aria-labelledby={ `offcanvasNavbarLabel-expand-${false}` }
             placement="end"
+            show={ show }
+            onHide={ handleClose }
           >
             <Offcanvas.Header closeButton>
               <Offcanvas.Title id={ `offcanvasNavbarLabel-expand-${false}` }>
-                <a href="/home">IBGE News</a>
+                <Link to="/home">IBGE News</Link>
               </Offcanvas.Title>
             </Offcanvas.Header>
             <Offcanvas.Body>
@@ -66,9 +78,27 @@ function OffcanvasExample() {
                 </Button>
               </Form>
               <Nav className="justify-content-end flex-grow-1 pe-3 mt-3">
-                <Nav.Link href="/home">Início</Nav.Link>
-                <Nav.Link href="/favorites">Favoritos</Nav.Link>
-                <Nav.Link href="/user-panel">Painel</Nav.Link>
+                <Nav.Link
+                  as={ Link }
+                  to="/home"
+                  onClick={ handleClose }
+                >
+                  Início
+                </Nav.Link>
+                <Nav.Link
+                  as={ Link }
+                  to="/favorites"
+                  onClick={ handleClose }
+                >
+                  Favoritos
+                </Nav.Link>
+                <Nav.Link
+                  as={ Link }
+                  to="/user-panel"
+                  onClick={ handleClose }
+                >
+                  Painel
+                </Nav.Link>
               </Nav>
               <SearchedNews />
             </Offcanvas.Body>
@@ -82,4 +112,4 @@ function OffcanvasExample() {
   );
 }
 
-export default OffcanvasExample;
+export default OffCanvasNavbar;

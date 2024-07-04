@@ -28,7 +28,7 @@ export default function Favorites() {
   }, []);
 
   return (
-    <div>
+    <div className="min-vh-100">
       <h5>
         {favoriteNews.length === 0
           ? 'Nenhuma notícia favorita'

@@ -8,6 +8,7 @@ export default function DataProvider({ children }: DataProviderProps) {
   const [latestNews, setLatestNews] = useState<ItemsType | null>(null);
   const [searchedNews, setSearchedNews] = useState<ItemsType[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [filter, setFilter] = useState('all');
 
   const value = {
     user,
@@ -20,7 +21,8 @@ export default function DataProvider({ children }: DataProviderProps) {
     setSearchedNews,
     isLoading,
     setIsLoading,
-
+    filter,
+    setFilter,
   };
 
   return (

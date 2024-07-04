@@ -14,7 +14,7 @@ export default function Painel() {
   }, []);
 
   return (
-    <div>
+    <div className="min-vh-100">
       <h5>Olá,</h5>
       <h3 className="text-center">{user}</h3>
       <div className="d-flex justify-content-center mt-5">

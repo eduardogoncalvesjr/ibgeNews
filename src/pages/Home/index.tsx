@@ -6,10 +6,13 @@ import fetchNews from '../../utils/fetchAPI';
 import Loading from '../../components/Loading';
 import Separator from '../../components/Separator';
 import ScrollToTop from '../../components/ScrollToTop';
+import filterNews from '../../utils/filterNews';
+import NewsFilter from '../../components/NewsFilter';
 
 export default function Home() {
   const [page, setPage] = useState(2);
   const [isLoadingMorePages, setIsLoadingMorePages] = useState(false);
+  const { filter } = useContext(DataContext);
 
   const {
     news,
@@ -21,13 +24,14 @@ export default function Home() {
   useEffect(() => {
     setIsLoading(true);
     fetchNews().then((result) => {
-      const latestNews = result.items[0];
-      const filteredNews = result.items.slice(1);
-      setNews(filteredNews);
+      const filteredNews = filterNews(result.items, filter);
+      const latestNews = filteredNews[0];
+      const otherNews = filteredNews.slice(1);
+      setNews(otherNews);
       setLatestNews(latestNews);
       setIsLoading(false);
     });
-  }, [setNews, setLatestNews, setIsLoading]);
+  }, [setNews, setLatestNews, setIsLoading, filter]);
 
   const handleLoadMorePages = () => {
     const pageNumber = page.toString();
@@ -35,7 +39,8 @@ export default function Home() {
     setIsLoadingMorePages(true);
 
     fetchNews(pageNumber).then((result) => {
-      setNews([...news, ...result.items]);
+      const filteredNews = filterNews(result.items, filter);
+      setNews([...news, ...filteredNews]);
       setPage(page + 1);
       setIsLoadingMorePages(false);
     });
@@ -47,6 +52,7 @@ export default function Home() {
 
   return (
     <main>
+      <NewsFilter />
       <LatestNews />
       <Separator />
       <div className="mt-5 mb-5">

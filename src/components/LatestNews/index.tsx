@@ -20,7 +20,11 @@ export default function LatestNews() {
   return (
     <div className="latest_news_box">
       <div>
-        <span className="text-danger d-block mb-2">Notícia mais recente</span>
+        <span className="text-danger d-block mb-2">
+          {latestNews.tipo}
+          {' '}
+          mais recente
+        </span>
       </div>
       <a href={ newsURL }>
         <img
