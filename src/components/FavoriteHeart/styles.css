@@ -1,0 +1,9 @@
+.favorite_heart {
+  font-size: 1.4rem;
+  border: none;
+  background-color: transparent;
+}
+
+.favorited {
+  color: red;
+}
