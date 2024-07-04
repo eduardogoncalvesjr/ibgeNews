@@ -39,7 +39,7 @@ export default function Login() {
             htmlFor="email"
             className="form-label"
           >
-            Digite seu email
+            Email
           </label>
           <input
             type="email"
@@ -48,6 +48,7 @@ export default function Login() {
             className="form-control"
             value={ email }
             onChange={ ({ target }) => setEmail(target.value) }
+            aria-label="Email"
           />
         </div>
         <div className="mb-3">
@@ -55,7 +56,7 @@ export default function Login() {
             htmlFor="email"
             className="form-label"
           >
-            Digite sua senha
+            Senha
           </label>
           <input
             type="password"
@@ -64,6 +65,7 @@ export default function Login() {
             className="form-control"
             value={ password }
             onChange={ ({ target }) => setPassword(target.value) }
+            aria-label="Password"
           />
         </div>
         <button

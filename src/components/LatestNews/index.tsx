@@ -8,6 +8,8 @@ import ShareButton from '../ShareButton';
 export default function LatestNews() {
   const { latestNews } = useContext(DataContext);
 
+  console.log(latestNews)
+
   if (!latestNews) {
     return <div>Loading...</div>;
   }
