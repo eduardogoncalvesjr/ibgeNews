@@ -13,7 +13,7 @@ export default function NewsBox({ news }: { news: ItemsType }) {
   const imageURL = getImageURL(image.image_intro);
 
   return (
-    <div className="card mb-3 news_card" data-testid="news-card">
+    <div className="card mb-3 news_card col-lg-6" data-testid="news-card">
       <div className="row g-0">
         <div className="d-flex flex-column justify-content-center col-4">
           <div>

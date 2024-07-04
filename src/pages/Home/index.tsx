@@ -51,11 +51,12 @@ export default function Home() {
   }
 
   return (
-    <main>
+    <main className="container-md">
+      <p className="mb-2">Filtros:</p>
       <NewsFilter />
       <LatestNews />
       <Separator />
-      <div className="mt-5 mb-5">
+      <div className="mt-5 mb-5 row">
         {news.map((pieceOfNews) => (
           <NewsBox
             key={ pieceOfNews.id }

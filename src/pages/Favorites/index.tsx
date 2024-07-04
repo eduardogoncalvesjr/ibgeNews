@@ -29,18 +29,20 @@ export default function Favorites() {
   }, []);
 
   return (
-    <div className="min-vh-100">
+    <div className="container-md min-vh-100">
       <h5>
         {favoriteNews.length === 0
           ? 'Nenhuma notícia favorita'
           : 'Suas notícias favoritas:'}
       </h5>
-      {favoriteNews.map((news) => (
-        <NewsBox
-          key={ news.id }
-          news={ news }
-        />
-      ))}
+      <div className="row">
+        {favoriteNews.map((news) => (
+          <NewsBox
+            key={ news.id }
+            news={ news }
+          />
+        ))}
+      </div>
     </div>
   );
 }

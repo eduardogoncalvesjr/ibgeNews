@@ -1,10 +1,9 @@
-import { useEffect, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export default function Footer() {
   return (
-    <div>
-      <footer className="bg-secondary text-light p-3">
+    <footer className="bg-secondary text-light p-3">
+      <div className="container-md">
         <h2>IBGE News</h2>
         <button
           className="footer_link"
@@ -28,7 +27,7 @@ export default function Footer() {
             Eduardo Gonçalves Junior
           </a>
         </p>
-      </footer>
-    </div>
+      </div>
+    </footer>
   );
 }
