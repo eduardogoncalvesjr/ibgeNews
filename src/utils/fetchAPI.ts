@@ -1,5 +1,5 @@
 const fetchNews = async (page: string = '1') => {
-  const URL = 'http://servicodados.ibge.gov.br/api/v3/noticias/?page=';
+  const URL = 'https://servicodados.ibge.gov.br/api/v3/noticias/?page=';
 
   const response = await fetch(`${URL}${page}`);
 
