@@ -46,8 +46,6 @@ export default function Home() {
     });
   };
 
-  return <Loading />;
-
   if (isLoading) {
     return <Loading />;
   }
