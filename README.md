@@ -4,11 +4,11 @@ IBGE News is a simple website made to show the most recent news of IBGE (https:/
 
 It has simple functionalities, such as:
 
-1 - Latest and most recent news display on the home page.
-2 - Text search input - Which allows the user to query for a text present in the API's database.
-3 - News/releases filter - Which allows the user to select which of the two they want the APP to display.
-4 - An ability to add/remove any news to the favorites.
-5 - The ability to access the full version of the news (in the original website, as the API doesn't allow the retrieval of specific news by ID, for example).
++ Latest and most recent news display on the home page.
++ Text search input - Which allows the user to query for a text present in the API's database.
++ News/releases filter - Which allows the user to select which of the two they want the APP to display.
++ An ability to add/remove any news to the favorites.
++ The ability to access the full version of the news (in the original website, as the API doesn't allow the retrieval of specific news by ID, for example).
 
 ## Project
 
