@@ -12,17 +12,26 @@ import './styles.css';
 import SearchedNews from '../SearchedNews';
 import DataContext from '../../context/DataContext';
 import fetchByText from '../../utils/fetchByText';
+import Separator from '../Separator';
 
 function OffCanvasNavbar() {
   const { setSearchedNews } = useContext(DataContext);
   const [searchText, setSearchText] = useState('');
+  const [searchError, setSearchError] = useState(false);
 
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const handleSearch = () => {
+  const handleSearch = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
     fetchByText(searchText).then((result) => {
+      if (result.items.length === 0) {
+        setSearchedNews([]);
+        setSearchError(true);
+        return;
+      }
+      setSearchError(false);
       setSearchedNews(result.items);
     });
 
@@ -61,7 +70,7 @@ function OffCanvasNavbar() {
               </Offcanvas.Title>
             </Offcanvas.Header>
             <Offcanvas.Body>
-              <Form className="d-flex">
+              <Form className="d-flex" onSubmit={ handleSearch }>
                 <Form.Control
                   type="search"
                   placeholder="Buscar"
@@ -72,7 +81,7 @@ function OffCanvasNavbar() {
                   data-testid="search-input"
                 />
                 <Button
-                  onClick={ handleSearch }
+                  type="submit"
                   variant="outline-success"
                   data-testid="search-button"
                 >
@@ -103,6 +112,13 @@ function OffCanvasNavbar() {
                   Painel
                 </Nav.Link>
               </Nav>
+              {searchError
+              && (
+                <div>
+                  <Separator />
+                  <p className="mt-3">Nenhuma notícia encontrada.</p>
+                </div>
+              )}
               <SearchedNews />
             </Offcanvas.Body>
           </Navbar.Offcanvas>

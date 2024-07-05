@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-max-depth */
 import { useContext } from 'react';
 import DataContext from '../../context/DataContext';
 import getImageURL from '../../utils/getImageUrl';
@@ -18,30 +19,37 @@ export default function LatestNews() {
   const imageURL = getImageURL(image.image_intro);
 
   return (
-    <div className="latest_news_box" data-testid="latest-news-box">
-      <div>
-        <span className="text-danger d-block mb-2">
-          {latestNews.tipo}
-          {' '}
-          mais recente
-        </span>
-      </div>
-      <a href={ newsURL }>
-        <img
-          src={ imageURL }
-          alt={ latestNews.titulo }
-          className="w-100 mb-2"
-        />
-        <p className="most_recent_news_title">{latestNews.titulo}</p>
-        <p className="most_recent_news_intro">{latestNews.introducao}</p>
-      </a>
-      <div className="d-flex justify-content-between align-items-center">
-        <span className="news_date">
-          {`${latestNews.tipo} | ${getDateTime(latestNews.data_publicacao)}`}
-        </span>
-        <div className="d-flex justify-content-start align-items-center">
-          <FavoriteHeart news={ latestNews } />
-          <ShareButton newsURL={ newsURL } />
+    <div className="latest_news_box card mb-3">
+      <div className="row g-0">
+        <div className="col-lg-6 p-0">
+          <a href={ newsURL }>
+            <img
+              src={ imageURL }
+              alt={ latestNews.titulo }
+              className="img-fluid latest_news_image"
+            />
+          </a>
+        </div>
+        <div className="col-lg-6 p-0 pt-sm-3 pt-md-0 ps-lg-3">
+          <div className="card-body p-0">
+            <div>
+              <p className="most_recent_news_title">
+                {latestNews.titulo}
+              </p>
+              <p className="most_recent_news_intro">
+                {latestNews.introducao}
+              </p>
+            </div>
+            <div className="d-flex justify-content-between align-items-center">
+              <span className="news_date">
+                {`${latestNews.tipo} | ${getDateTime(latestNews.data_publicacao)}`}
+              </span>
+              <div className="d-flex justify-content-start align-items-center">
+                <FavoriteHeart news={ latestNews } />
+                <ShareButton newsURL={ newsURL } />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

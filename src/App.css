@@ -4,6 +4,10 @@ a:visited {
   color: inherit;
 }
 
+.password_error {
+  font-size: 0.8rem;
+}
+
 .footer_link {
   display: block;
   margin-top: 1rem;
@@ -18,6 +22,14 @@ button.footer_link {
 
 .footer_link_name {
   text-decoration: underline;
+}
+
+.latest_news_box {
+  border: none !important;
+}
+
+.latest_news_image {
+  max-height: 300px;
 }
 
 .news_title,
