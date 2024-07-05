@@ -19,7 +19,7 @@ export default function LatestNews() {
   const imageURL = getImageURL(image.image_intro);
 
   return (
-    <div className="latest_news_box card mb-3">
+    <div className="latest_news_box card mb-3 mb-lg-5">
       <div className="row g-0">
         <div className="col-lg-6 p-0">
           <a href={ newsURL }>
