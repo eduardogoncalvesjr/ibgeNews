@@ -9,7 +9,7 @@ export default function NewsFilter() {
   };
 
   return (
-    <div className="input-group">
+    <div className="input-group mb-2">
       <label className="form-label">
         <input
           type="radio"
