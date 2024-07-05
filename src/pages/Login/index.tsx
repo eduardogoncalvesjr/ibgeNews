@@ -20,6 +20,10 @@ export default function Login() {
     navigate('/home');
   };
 
+  const checkPassword = () => {
+    return password !== '' && password.length <= 6;
+  };
+
   return (
     <div
       className="
@@ -68,6 +72,11 @@ export default function Login() {
             aria-label="Password"
           />
         </div>
+        {checkPassword() && (
+          <p className="text-danger password_error">
+            Sua senha deve ter mais de 6 caracteres.
+          </p>
+        )}
         <button
           className="btn btn-primary w-100 text-light"
           disabled={ !isDisabled }
