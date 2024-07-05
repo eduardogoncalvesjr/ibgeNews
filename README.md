@@ -49,3 +49,7 @@ You can also check the test coverage by running:
     $ npm run coverage
 
 The test coverage is currently at 90%.
+
+### Development
+
+This website was developed with React (Typescript) and Bootstrap.
