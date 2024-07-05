@@ -21,16 +21,16 @@ You can access the online project running at this link: [IBGE News](https://ibge
 You may download the project in your machine and run it locally.
 To get a local copy of the project, clone it using git.
 
-  $ git clone git@github.com:eduardogoncalvesjr/ibgeNews.git
-  $ cd ibgeNews
+    $ git clone git@github.com:eduardogoncalvesjr/ibgeNews.git
+    $ cd ibgeNews
 
 Next, install all the dependencies.
 
-  $ npm install
+    $ npm install
 
 After it finishes installing the dependencies, you may run the project.
 
-  $ npm run dev
+    $ npm run dev
 
 It will then be available at http://localhost:5173/ .
 
@@ -38,14 +38,14 @@ It will then be available at http://localhost:5173/ .
 
 If you want to have access to the Unit Tests, you need to install some specific dependencies. After installing the project with "npm install", you may also run:
 
-  $ npm install -D vitest jsdom @testing-library/jest-dom @testing-library/react @testing-library/user-event @types/jest
+    $ npm install -D vitest jsdom @testing-library/jest-dom @testing-library/react @testing-library/user-event @types/jest
 
 After the dependencies have been installed, run the following command to check the tests:
 
-  $ npm run test
+    $ npm run test
 
 You can also check the test coverage by running:
 
-  $ npm run coverage
+    $ npm run coverage
 
 The test coverage is currently at 90%.
