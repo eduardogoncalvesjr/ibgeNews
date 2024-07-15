@@ -33,12 +33,14 @@ export default function LatestNews() {
         <div className="col-lg-6 p-0 pt-sm-3 pt-md-0 ps-lg-3">
           <div className="card-body p-0">
             <div>
-              <p className="most_recent_news_title">
-                {latestNews.titulo}
-              </p>
-              <p className="most_recent_news_intro">
-                {latestNews.introducao}
-              </p>
+              <a href={ newsURL }>
+                <p className="most_recent_news_title">
+                  {latestNews.titulo}
+                </p>
+                <p className="most_recent_news_intro">
+                  {latestNews.introducao}
+                </p>
+              </a>
             </div>
             <div className="d-flex justify-content-between align-items-center">
               <span className="news_date">
